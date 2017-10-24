@@ -2,5 +2,13 @@
   "name": "tws4restaurant",
   "app_id": "bc89da26",
   "type": "ionic1",
-  "integrations": {}
+  "integrations": {
+    "gulp": {}
+  },
+  "watchPatterns": [
+    "scss/**/*",
+    "www/**/*",
+    "!www/lib/**/*",
+    "!www/**/*.map"
+  ]
 }

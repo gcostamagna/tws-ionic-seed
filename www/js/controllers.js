@@ -3,11 +3,7 @@ angular.module('starter.controllers', [])
     .controller('ExhaustCtrl', function($scope, $http, $cordovaToast, Regions) {
 
     $scope.click = function (){
-        $cordovaToast.show('Here is a message', 'long', 'center').then(function(success) {
-            // success
-        }, function (error) {
-            // error
-        });
+        $cordovaToast.showShortTop('Here is a message')
     }
 
 

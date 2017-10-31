@@ -1,26 +1,25 @@
 
 <ion-view view-title="Exhaust" ng-init="getWineList()">
 
-    <div class="bar bar-header bar-light">
+    <ion-content class="padding">
+        <div class="bar bar-header bar-light">
 
-        <div class="row wine-category" ng-init="wineCategory = ''">
-            <div id="navbar">
-                <div  data-ng-click="setWineCategory('')" ng-class="'' == wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'" class="text-uppercase">Tutti i vini</div>
-                <div  data-ng-click="setWineCategory('Bianco')" ng-class="'Bianco' == wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'" class="text-uppercase">Bianco</div>
-                <div  data-ng-click="setWineCategory('Rosso')" ng-class="'Rosso' == wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'" class="text-uppercase">Rosso</div>
-                <div  data-ng-click="setWineCategory('Bollicine')" ng-class="'Bollicine' == wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'" class="text-uppercase">Bollicine</div>
-                <div  data-ng-click="setWineCategory('Rosati')" ng-class="'Rosati' == wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'" class="text-uppercase">Rosati</div>
-                <div  data-ng-click="setWineCategory('Champagne')" ng-class="'Champagne' == wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'" class="text-uppercase">Champagne</div>
-                <div  data-ng-click="setWineCategory('Dolce')" ng-class="'Dolce'== wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'" class="text-uppercase">Vini dolci</div>
+            <div class="row wine-category" ng-init="wineCategory = ''">
+                <div id="navbar">
+                    <div  data-ng-click="setWineCategory('')" ng-class="'' == wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'" class="text-uppercase">Tutti i vini</div>
+                    <div  data-ng-click="setWineCategory('Bianco')" ng-class="'Bianco' == wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'" class="text-uppercase">Bianco</div>
+                    <div  data-ng-click="setWineCategory('Rosso')" ng-class="'Rosso' == wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'" class="text-uppercase">Rosso</div>
+                    <div  data-ng-click="setWineCategory('Bollicine')" ng-class="'Bollicine' == wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'" class="text-uppercase">Bollicine</div>
+                    <div  data-ng-click="setWineCategory('Rosati')" ng-class="'Rosati' == wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'" class="text-uppercase">Rosati</div>
+                    <div  data-ng-click="setWineCategory('Champagne')" ng-class="'Champagne' == wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'" class="text-uppercase">Champagne</div>
+                    <div  data-ng-click="setWineCategory('Dolce')" ng-class="'Dolce'== wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'" class="text-uppercase">Vini dolci</div>
+                </div>
             </div>
+
         </div>
-
-    </div>
-
-    <ion-content class="padding margin-top-35">
         <div class="row">
             <!-- {{wines}} -->
-            <ion-scroll scrollY="true" overflow-scroll="false" class="col col-90">
+            <ion-scroll class="col col-90">
                 <div class="card" ng-repeat = "wine in wines | filter:{Subcategory:wineCategory, Territory_Code:wineRegion}">
                     <div class="item item-divider card-title-background">
                         <div class="card-title text-uppercase">{{wine.Winemaker_Name}} </div>
@@ -51,7 +50,7 @@
                 </div>
             </ion-scroll>
 
-            <ion-scroll scrollY="false" class="col">
+            <ion-scroll class="col">
                 <div class="pin small"></div>
                 <ion-list class="region-list"> 
                     <a data-ng-click="setWineRegion('')" ng-class="'' == wineRegion ? 'text-uppercase bold' : ''"> Tutte </a>

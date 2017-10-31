@@ -9833,7 +9833,7 @@ a.button {
     color: #fff; }
 
 .tabs {
-  height: 115px;
+  height: 100px;
   background: #3a1826;
   border: 0px; }
   .tabs .tab-item .icon, .tabs .tab-title {
@@ -9957,8 +9957,8 @@ a.button {
 .region-list {
   font-size: 14px; }
   .region-list li {
-    margin-top: 7px;
-    margin-bottom: 7px;
+    margin-top: 3px;
+    margin-bottom: 3px;
     list-style: none; }
   .region-list a {
     color: #3a1826;

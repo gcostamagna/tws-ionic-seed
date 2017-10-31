@@ -49,7 +49,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 //IONIC TEMPLATE UPDATES
 .tabs {
-    height: 115px;
+    height: 100px;
     background: $violet;
     border: 0px;
 
@@ -211,8 +211,8 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 .region-list {
     font-size: 14px;
     li {
-        margin-top: 7px;
-        margin-bottom: 7px;
+        margin-top: 3px;
+        margin-bottom: 3px;
         list-style: none;
     }
     a {

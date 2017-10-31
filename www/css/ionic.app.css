@@ -9832,19 +9832,26 @@ a.button {
   .button.button-stable:hover {
     color: #fff; }
 
-.tabs {
-  height: 100px;
-  background: #3a1826;
-  border: 0px; }
-  .tabs .tab-item .icon, .tabs .tab-title {
-    color: #fff; }
-  .tabs a {
-    padding: 12px; }
-  .tabs .tab-item-active {
-    background: #fff; }
-    .tabs .tab-item-active .icon, .tabs .tab-item-active .tab-title {
-      color: #3a1826; }
+/* .tabs {
+    height: 100px;
+    background: $violet;
+    border: 0px;
 
+    .tab-item .icon, .tab-title {
+        color: $white;
+    }
+
+    a {
+        padding: 12px;
+    }
+
+    .tab-item-active {
+        background: $white;
+        .icon, .tab-title {
+            color: $violet;
+        }
+    }
+} */
 .item-text-wrap {
   text-align: center; }
 

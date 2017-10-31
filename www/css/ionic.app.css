@@ -9834,14 +9834,28 @@ a.button {
 
 .tabs {
   height: 100px;
-  background-color: #3a1826;
   border: 0px; }
+  .tabs {
+    background-color: #3a1826; }
+  .tab-item {
+    color: rgba(221, 166, 192, 0.4);
+    opacity: 1; }
+    .tab-item .badge {
+      opacity: 0.4; }
+    .tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
+      margin-top: -2px;
+      color: #dda6c0;
+      border-style: solid;
+      border-width: 2px 0 0 0;
+      border-color: #dda6c0; }
+  .tabs.tabs-top .tab-item.tab-item-active .badge, .tabs.tabs-top .tab-item.active .badge, .tabs.tabs-top .tab-item.activated .badge {
+    top: 4%; }
   .tabs .tab-item .icon, .tabs .tab-title {
     color: #fff; }
   .tabs a {
     padding: 12px; }
   .tabs .tab-item-active {
-    background-color: #fff; }
+    background-color: #dda6c0; }
     .tabs .tab-item-active .icon, .tabs .tab-item-active .tab-title {
       color: #3a1826; }
 

@@ -49,8 +49,8 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 //IONIC TEMPLATE UPDATES
 .tabs {
+    @include tabs-striped($pink,$pink,$violet);
     height: 100px;
-    background-color: $violet;
     border: 0px;
 
     .tab-item .icon, .tab-title {
@@ -62,9 +62,9 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     }
 
     .tab-item-active {
-        background-color: $white;
+        background-color: $pink;
         .icon, .tab-title {
-            color: $violet;
+            color: $white;
         }
     }
 }

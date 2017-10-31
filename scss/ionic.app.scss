@@ -50,7 +50,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 //IONIC TEMPLATE UPDATES
 .tabs {
     height: 100px;
-    background: $violet;
+    background-color: $violet;
     border: 0px;
 
     .tab-item .icon, .tab-title {
@@ -62,7 +62,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     }
 
     .tab-item-active {
-        background: $white;
+        background-color: $white;
         .icon, .tab-title {
             color: $violet;
         }

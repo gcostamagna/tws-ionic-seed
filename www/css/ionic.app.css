@@ -9834,14 +9834,14 @@ a.button {
 
 .tabs {
   height: 100px;
-  background: #3a1826;
+  background-color: #3a1826;
   border: 0px; }
   .tabs .tab-item .icon, .tabs .tab-title {
     color: #fff; }
   .tabs a {
     padding: 12px; }
   .tabs .tab-item-active {
-    background: #fff; }
+    background-color: #fff; }
     .tabs .tab-item-active .icon, .tabs .tab-item-active .tab-title {
       color: #3a1826; }
 

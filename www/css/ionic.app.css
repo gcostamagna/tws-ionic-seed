@@ -9815,24 +9815,77 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-.pin {
+.platform-android .green .popup, .platform-browser .green .popup, .platform-ipad .green .popup, .platform-ios .green .popup, .platform-webview .green .popup {
+  position: absolute;
+  top: 0px;
+  border: 0px;
+  background: #00DE11;
+  width: 100%; }
+
+.platform-android .green .popup-title, .platform-browser .green .popup-title, .platform-ipad .green .popup-title, .platform-ios .green .popup-title, .platform-webview .green .popup-title {
+  color: white;
+  text-transform: uppercase; }
+
+.platform-android .green .popup-buttons, .platform-browser .green .popup-buttons, .platform-ipad .green .popup-buttons, .platform-ios .green .popup-buttons, .platform-webview .green .popup-buttons {
+  display: none; }
+
+.platform-android .loading-backdrop, .platform-browser .loading-backdrop, .platform-ipad .loading-backdrop, .platform-ios .loading-backdrop, .platform-webview .loading-backdrop {
+  background-color: white; }
+
+.platform-android .backdrop.active, .platform-browser .backdrop.active, .platform-ipad .backdrop.active, .platform-ios .backdrop.active, .platform-webview .backdrop.active {
+  opacity: 0; }
+
+.platform-android .loading, .platform-browser .loading, .platform-ipad .loading, .platform-ios .loading, .platform-webview .loading {
+  background-color: transparent; }
+
+.platform-android .spinner-button.spinner svg, .platform-browser .spinner-button.spinner svg, .platform-ipad .spinner-button.spinner svg, .platform-ios .spinner-button.spinner svg, .platform-webview .spinner-button.spinner svg {
+  width: 180px;
+  line-height: 6;
+  height: 30px;
+  stroke: white;
+  fill: white; }
+
+.platform-android .spinner, .platform-browser .spinner, .platform-ipad .spinner, .platform-ios .spinner, .platform-webview .spinner {
+  stroke: #3a1826;
+  fill: #3a1826; }
+  .platform-android .spinner svg, .platform-browser .spinner svg, .platform-ipad .spinner svg, .platform-ios .spinner svg, .platform-webview .spinner svg {
+    height: 60px;
+    width: 60px; }
+
+.platform-android .text-uppercase, .platform-browser .text-uppercase, .platform-ipad .text-uppercase, .platform-ios .text-uppercase, .platform-webview .text-uppercase {
+  text-transform: uppercase; }
+
+.platform-android .text-align-center, .platform-browser .text-align-center, .platform-ipad .text-align-center, .platform-ios .text-align-center, .platform-webview .text-align-center {
+  text-align: center; }
+
+.platform-android .text-align-right, .platform-browser .text-align-right, .platform-ipad .text-align-right, .platform-ios .text-align-right, .platform-webview .text-align-right {
+  text-align: right; }
+
+.platform-android .bold, .platform-browser .bold, .platform-ipad .bold, .platform-ios .bold, .platform-webview .bold {
+  font-weight: bold; }
+
+.platform-android .margin-auto, .platform-browser .margin-auto, .platform-ipad .margin-auto, .platform-ios .margin-auto, .platform-webview .margin-auto {
+  margin: 0 auto; }
+
+.platform-android .pin, .platform-browser .pin, .platform-ipad .pin, .platform-ios .pin, .platform-webview .pin {
   background: url("/img/PNG/icon_pin.png");
   width: 25px;
   height: 38px;
-  background-size: 100%;
-  margin: 0 auto; }
-  .pin.small {
+  background-size: 100%; }
+  .platform-android .pin.small, .platform-browser .pin.small, .platform-ipad .pin.small, .platform-ios .pin.small, .platform-webview .pin.small {
     width: 13px;
     height: 20px; }
+  .platform-android .pin.right, .platform-browser .pin.right, .platform-ipad .pin.right, .platform-ios .pin.right, .platform-webview .pin.right {
+    margin-left: 90%; }
 
-.button.button-stable {
+.platform-android .button.button-stable, .platform-browser .button.button-stable, .platform-ipad .button.button-stable, .platform-ios .button.button-stable, .platform-webview .button.button-stable {
   background: #3a1826;
   color: #fff;
   margin: 0 auto; }
-  .button.button-stable:hover {
+  .platform-android .button.button-stable:hover, .platform-browser .button.button-stable:hover, .platform-ipad .button.button-stable:hover, .platform-ios .button.button-stable:hover, .platform-webview .button.button-stable:hover {
     color: #fff; }
 
-.tabs {
+.platform-android .tabs, .platform-browser .tabs, .platform-ipad .tabs, .platform-ios .tabs, .platform-webview .tabs {
   height: 100px;
   border: 0px; }
   .tabs {
@@ -9848,34 +9901,34 @@ a.button {
       border-style: solid;
       border-width: 2px 0 0 0;
       border-color: #dda6c0; }
-  .tabs.tabs-top .tab-item.tab-item-active .badge, .tabs.tabs-top .tab-item.active .badge, .tabs.tabs-top .tab-item.activated .badge {
+  .platform-android .tabs.tabs-top .tab-item.tab-item-active .badge, .platform-android .tabs.tabs-top .tab-item.active .badge, .platform-android .tabs.tabs-top .tab-item.activated .badge, .platform-browser .tabs.tabs-top .tab-item.tab-item-active .badge, .platform-browser .tabs.tabs-top .tab-item.active .badge, .platform-browser .tabs.tabs-top .tab-item.activated .badge, .platform-ipad .tabs.tabs-top .tab-item.tab-item-active .badge, .platform-ipad .tabs.tabs-top .tab-item.active .badge, .platform-ipad .tabs.tabs-top .tab-item.activated .badge, .platform-ios .tabs.tabs-top .tab-item.tab-item-active .badge, .platform-ios .tabs.tabs-top .tab-item.active .badge, .platform-ios .tabs.tabs-top .tab-item.activated .badge, .platform-webview .tabs.tabs-top .tab-item.tab-item-active .badge, .platform-webview .tabs.tabs-top .tab-item.active .badge, .platform-webview .tabs.tabs-top .tab-item.activated .badge {
     top: 4%; }
-  .tabs .tab-item .icon, .tabs .tab-title {
+  .platform-android .tabs .tab-item .icon, .platform-android .tabs .tab-title, .platform-browser .tabs .tab-item .icon, .platform-browser .tabs .tab-title, .platform-ipad .tabs .tab-item .icon, .platform-ipad .tabs .tab-title, .platform-ios .tabs .tab-item .icon, .platform-ios .tabs .tab-title, .platform-webview .tabs .tab-item .icon, .platform-webview .tabs .tab-title {
     color: #fff; }
-  .tabs a {
+  .platform-android .tabs a, .platform-browser .tabs a, .platform-ipad .tabs a, .platform-ios .tabs a, .platform-webview .tabs a {
     padding: 12px; }
-  .tabs .tab-item-active {
+  .platform-android .tabs .tab-item-active, .platform-browser .tabs .tab-item-active, .platform-ipad .tabs .tab-item-active, .platform-ios .tabs .tab-item-active, .platform-webview .tabs .tab-item-active {
     background-color: #dda6c0; }
-    .tabs .tab-item-active .icon, .tabs .tab-item-active .tab-title {
-      color: #3a1826; }
+    .platform-android .tabs .tab-item-active .icon, .platform-android .tabs .tab-item-active .tab-title, .platform-browser .tabs .tab-item-active .icon, .platform-browser .tabs .tab-item-active .tab-title, .platform-ipad .tabs .tab-item-active .icon, .platform-ipad .tabs .tab-item-active .tab-title, .platform-ios .tabs .tab-item-active .icon, .platform-ios .tabs .tab-item-active .tab-title, .platform-webview .tabs .tab-item-active .icon, .platform-webview .tabs .tab-item-active .tab-title {
+      color: #fff; }
 
-.item-text-wrap {
+.platform-android .item-text-wrap, .platform-browser .item-text-wrap, .platform-ipad .item-text-wrap, .platform-ios .item-text-wrap, .platform-webview .item-text-wrap {
   text-align: center; }
 
-.item-divider {
+.platform-android .item-divider, .platform-browser .item-divider, .platform-ipad .item-divider, .platform-ios .item-divider, .platform-webview .item-divider {
   background: #fff;
   width: 100%;
   text-align: center; }
 
-.tab-item .icon {
+.platform-android .tab-item .icon, .platform-browser .tab-item .icon, .platform-ipad .tab-item .icon, .platform-ios .tab-item .icon, .platform-webview .tab-item .icon {
   display: block;
   margin: 0 auto;
   height: 45px;
   font-size: 45px; }
 
-.item {
+.platform-android .item, .platform-browser .item, .platform-ipad .item, .platform-ios .item, .platform-webview .item {
   border: 0px; }
-  .item .item-input select {
+  .platform-android .item .item-input select, .platform-browser .item .item-input select, .platform-ipad .item .item-input select, .platform-ios .item .item-input select, .platform-webview .item .item-input select {
     width: 100%;
     text-align: center;
     border: 1px solid #3a1826;
@@ -9884,98 +9937,73 @@ a.button {
     font-size: 23px;
     background: white; }
 
-.item-select {
+.platform-android .item-select, .platform-browser .item-select, .platform-ipad .item-select, .platform-ios .item-select, .platform-webview .item-select {
   border: 1px solid #3a1826;
   margin-top: 8px; }
 
-.tabs-icon-top > .tabs .tab-item {
+.platform-android .tabs-icon-top > .tabs .tab-item, .platform-browser .tabs-icon-top > .tabs .tab-item, .platform-ipad .tabs-icon-top > .tabs .tab-item, .platform-ios .tabs-icon-top > .tabs .tab-item, .platform-webview .tabs-icon-top > .tabs .tab-item {
   font-size: 18px;
   line-height: 30px; }
 
-.item-radio {
-  display: inline-block;
-  border: 0px; }
+.platform-android .nav-bar-block, .platform-browser .nav-bar-block, .platform-ipad .nav-bar-block, .platform-ios .nav-bar-block, .platform-webview .nav-bar-block {
+  display: none; }
 
-.bar.bar-light {
-  border: 0px; }
+.platform-android .bar.bar-light, .platform-browser .bar.bar-light, .platform-ipad .bar.bar-light, .platform-ios .bar.bar-light, .platform-webview .bar.bar-light {
+  border: 0px;
+  height: 80px; }
 
-.background-violet {
+.platform-android .background-violet, .platform-browser .background-violet, .platform-ipad .background-violet, .platform-ios .background-violet, .platform-webview .background-violet {
   background: #3a1826;
   color: #fff; }
 
-.wine-category #navbar {
-  width: 90%;
-  margin: 0 auto; }
+.platform-android .bar-header, .platform-browser .bar-header, .platform-ipad .bar-header, .platform-ios .bar-header, .platform-webview .bar-header {
+  border-bottom-width: 0px; }
 
-.wine-category div {
-  font-size: 14px;
-  display: inline-block;
-  padding: 10px;
-  height: 40px;
-  text-align: center;
-  font-weight: bold;
-  border-radius: 15px;
-  cursor: pointer;
-  width: 120px; }
+.platform-android #navbar, .platform-browser #navbar, .platform-ipad #navbar, .platform-ios #navbar, .platform-webview #navbar {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center; }
+  .platform-android #navbar div, .platform-browser #navbar div, .platform-ipad #navbar div, .platform-ios #navbar div, .platform-webview #navbar div {
+    font-size: 14px;
+    display: inline-block;
+    padding: 10px;
+    height: 40px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 15px;
+    cursor: pointer;
+    width: 120px; }
 
-.wine-category .radio-content .item-content {
-  border-radius: 10px;
-  height: 10px;
-  line-height: 0;
-  font-weight: bold;
-  border: 0px;
-  background: #3a1826 !important;
-  color: #fff; }
+.platform-android .card-wrapper, .platform-browser .card-wrapper, .platform-ipad .card-wrapper, .platform-ios .card-wrapper, .platform-webview .card-wrapper {
+  height: 100vh; }
 
-.wine-category .radio-content .item-radio input:checked {
-  background: #fff;
-  color: #fff; }
-
-.wine-category .radio-content .radio-icon {
-  color: #fff;
-  line-height: 0;
-  height: 0px;
-  top: -10px; }
-
-.padding .card {
+.platform-android .card, .platform-browser .card, .platform-ipad .card, .platform-ios .card, .platform-webview .card {
   display: inline-block;
   width: 24%;
   margin-left: 0.5%;
   margin-right: 0.5%;
   height: 225px; }
 
-.text-uppercase {
-  text-transform: uppercase; }
-
-.margin-top-35 {
-  margin-top: 35px; }
-
-.margin-auto {
-  margin: 0px auto; }
-
-.bold {
-  font-weight: bold; }
-
-.card-title-background {
+.platform-android .card-title-background, .platform-browser .card-title-background, .platform-ipad .card-title-background, .platform-ios .card-title-background, .platform-webview .card-title-background {
   background: #3a1826;
   color: #fff; }
-  .card-title-background .card-title, .card-title-background .card-description {
+  .platform-android .card-title-background .card-title, .platform-android .card-title-background .card-description, .platform-browser .card-title-background .card-title, .platform-browser .card-title-background .card-description, .platform-ipad .card-title-background .card-title, .platform-ipad .card-title-background .card-description, .platform-ios .card-title-background .card-title, .platform-ios .card-title-background .card-description, .platform-webview .card-title-background .card-title, .platform-webview .card-title-background .card-description {
     color: white; }
-  .card-title-background .card-title {
+  .platform-android .card-title-background .card-title, .platform-browser .card-title-background .card-title, .platform-ipad .card-title-background .card-title, .platform-ios .card-title-background .card-title, .platform-webview .card-title-background .card-title {
     font-size: 12px;
     display: inline; }
-  .card-title-background .card-description {
+  .platform-android .card-title-background .card-description, .platform-browser .card-title-background .card-description, .platform-ipad .card-title-background .card-description, .platform-ios .card-title-background .card-description, .platform-webview .card-title-background .card-description {
     font-weight: bold;
     font-size: 16px; }
 
-.region-list {
+.platform-android .region-list, .platform-browser .region-list, .platform-ipad .region-list, .platform-ios .region-list, .platform-webview .region-list {
   font-size: 14px; }
-  .region-list li {
+  .platform-android .region-list li, .platform-browser .region-list li, .platform-ipad .region-list li, .platform-ios .region-list li, .platform-webview .region-list li {
     margin-top: 3px;
     margin-bottom: 3px;
     list-style: none; }
-  .region-list a {
+  .platform-android .region-list a, .platform-browser .region-list a, .platform-ipad .region-list a, .platform-ios .region-list a, .platform-webview .region-list a {
     color: #3a1826;
     cursor: pointer; }
-  .region-list a:hover {
+  .platform-android .region-list a:hover, .platform-browser .region-list a:hover, .platform-ipad .region-list a:hover, .platform-ios .region-list a:hover, .platform-webview .region-list a:hover {
     font-size: 16px; }

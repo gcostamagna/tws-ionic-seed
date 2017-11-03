@@ -1,9 +1,7 @@
-angular.module('starter.services', [])
+service = angular.module('starter.services', [])
 
-    .factory('Regions', function() {
+service.factory('Region', function() {
     // Might use a resource here that returns a JSON array
-
-    // Some fake testing data
     var regions = [{
         id: 0,
         name: 'Abruzzo',
@@ -82,6 +80,7 @@ angular.module('starter.services', [])
     }, {
         id: 15,
         name: 'Toscana',
+        letter: 'T',
         filter: 'TOSCANA',
     }, {
         id: 16,
@@ -103,68 +102,126 @@ angular.module('starter.services', [])
         name: 'Veneto',
         letter: 'V',
         filter: 'VENETO',
+    } , {
+        id: 20,
+        name: 'Tutte le regioni',
+        letter: '',
+        filter: '',
     } ];
 
     return {
         all: function() {
             return regions;
         },
-        get: function(chatId) {
-            for (var i = 0; i < chats.length; i++) {
-                if (chats[i].id === parseInt(chatId)) {
-                    return chats[i];
-                }
-            }
-            return null;
-        }
     };
 })
 
-.factory('Chats', function() {
-    // Might use a resource here that returns a JSON array
-
-    // Some fake testing data
-    var chats = [{
-        id: 0,
-        name: 'Ben Sparrow',
-        lastText: 'You on your way?',
-        face: 'img/ben.png'
+service.factory('Number', function() {
+    var numbers = [{
+        value: 1,
     }, {
-        id: 1,
-        name: 'Max Lynx',
-        lastText: 'Hey, it\'s me',
-        face: 'img/max.png'
+        value: 2
     }, {
-        id: 2,
-        name: 'Adam Bradleyson',
-        lastText: 'I should buy a boat',
-        face: 'img/adam.jpg'
+        value: 3
     }, {
-        id: 3,
-        name: 'Perry Governor',
-        lastText: 'Look at my mukluks!',
-        face: 'img/perry.png'
+        value: 4
     }, {
-        id: 4,
-        name: 'Mike Harrington',
-        lastText: 'This is wicked good ice cream.',
-        face: 'img/mike.png'
+        value: 5
+    }, {
+        value: 6
+    }, {
+        value: 7
+    }, {
+        value: 8
+    }, {
+        value: 9
+    }, {
+        value: 10
     }];
 
     return {
         all: function() {
-            return chats;
+            return numbers;
         },
-        remove: function(chat) {
-            chats.splice(chats.indexOf(chat), 1);
-        },
-        get: function(chatId) {
-            for (var i = 0; i < chats.length; i++) {
-                if (chats[i].id === parseInt(chatId)) {
-                    return chats[i];
-                }
-            }
-            return null;
+    };
+})
+
+
+service.factory('Winelist', function($http) {
+    return {
+        //return wines from a specific winelist - by winelist_id
+        getWinelist: function(winelist_id) {
+            var promise = $http.get('https://tws-middleware-staging.herokuapp.com/winelist/' + winelist_id).then(function (results) {
+                return results.data["0"].data;
+            });
+            return promise;
         }
     };
-});
+})
+
+service.factory('Wharehouse', function($http) {
+    return {
+        //return wines from a specific winelist - by winelist_id
+        postWharehouseExhaust: function(navision_id, wine_id, quantity, wine_year, location_id, winemaker_name, wine_name) {
+            var exhaust_date = new Date();
+            var promise = $http.post('https://tws-middleware-staging.herokuapp.com/warehouseExhaust/', JSON.stringify({
+                "Basket_No": "E" + exhaust_date.getTime(),
+                "Download_Date": exhaust_date,
+                "Customer_No": navision_id,
+                "Location_Code": location_id,
+                "Item_No": wine_id,
+                "Variant_Code": wine_year,
+                "Quantity": quantity,
+                "Description": wine_name,
+                "WineMaker_Name": winemaker_name
+            })).then(function (results) {
+                return results;
+            });
+            return promise;
+        }
+    };
+})
+
+service.factory('Utility', function($ionicPopup, $ionicHistory, $state, $timeout) {
+    return {
+        confirmPopup: function(title, cssClass) {
+            var popup = $ionicPopup.alert({
+                title: title,
+                cssClass: cssClass
+            }); 
+            return popup
+        },
+        closePopup: function(popup, time) {
+            $timeout(function(){
+                popup.close();
+            }, time)
+        },
+        refreshPage: function(location) {
+            $ionicHistory.clearCache().then(function(){
+                $state.go(location, {}, {reload: true});
+            });
+        }
+    }
+
+})
+
+service.factory('User', function($http) {
+    return {
+        //return the navision Id of a user - by user_id
+        getNavisionId: function(user_id) {
+            var promise = $http.get('https://tws-middleware-staging.herokuapp.com/customer/' + user_id).then(function (results) {
+                return results.data["0"].data["0"].navision_id;
+            });
+            return promise;
+        },
+
+        //return the active winelist id of a user - by navision_id
+        getActiveWinelistId: function(navision_id) {
+            var promise = $http.get('https://tws-middleware-staging.herokuapp.com/activeWinelist/' + navision_id).then(function (results) {
+                return results.data["0"].data["0"].No;
+            });
+            return promise;
+        }
+
+    };
+})

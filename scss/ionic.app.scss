@@ -18,6 +18,7 @@ $dark:                            #444 !default;
 $violet: #3a1826;
 $white: #fff;
 $pink: #dda6c0;
+$green: #00DE11;
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
@@ -25,148 +26,212 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
-// icons
-.pin {
-    background: url('/img/PNG/icon_pin.png');
-    width: 25px;
-    height: 38px;
-    background-size: 100%;
-    margin: 0 auto;
-    &.small {
-        width: 13px;
-        height: 20px;
-    } 
-}
-
-.button.button-stable {
-    background: $violet;
-    color: $white;
-    margin: 0 auto;
-    &:hover {
-        color: $white;
-    }
-}
-
-//IONIC TEMPLATE UPDATES
-.tabs {
-    @include tabs-striped($pink,$pink,$violet);
-    height: 100px;
-    border: 0px;
-
-    .tab-item .icon, .tab-title {
-        color: $white;
-    }
-
-    a {
-        padding: 12px;
-    }
-
-    .tab-item-active {
-        background-color: $pink;
-        .icon, .tab-title {
-            color: $white;
+.platform-android, .platform-browser, .platform-ipad, .platform-ios, .platform-webview {
+    //POPUP
+    .green{
+        .popup {
+            position: absolute;
+            top: 0px;
+            border: 0px;
+            background: $green;
+            width: 100%
+        }
+        .popup-title {
+            color: white;
+            text-transform: uppercase;
+        }
+        .popup-buttons {
+            display: none;
         }
     }
-}
 
-.item-text-wrap {
-    text-align: center;
-}
+    //LOADING CLASS
+    .loading-backdrop{
+        background-color: rgb(255,255,255);
+    }
 
-.item-divider {
-    background: $white;
-    width: 100%;
-    text-align: center;
-}
+    .backdrop.active {
+        opacity: 0;
+    }
 
-.tab-item .icon {
-    display: block;
-    margin: 0 auto;
-    height: 45px;
-    font-size: 45px;
-}
+    .loading{
+        background-color: transparent;
+    }
 
-.item {
-    border: 0px;
-    .item-input {
-        select {
-            width: 100%;
-            text-align: center;
-            border: 1px solid $violet;
-            height: 40px;
-            text-indent: 39%;
-            font-size: 23px;
-            background: white; 
+    .spinner-button {
+        &.spinner svg {
+            width: 180px;
+            line-height: 6;
+            height: 30px;
+            stroke: white;
+            fill: white;
+        }    
+    }
+
+    .spinner {
+        stroke: $violet;
+        fill: $violet;
+        svg {
+            height: 60px;
+            width: 60px;
         }
     }
-}
 
-.item-select {
-    border: 1px solid $violet;
-    margin-top: 8px;
-}
+    // UTILITIES
+    .text-uppercase {
+        text-transform: uppercase;
+    }
 
-.tabs-icon-top>.tabs .tab-item {
-    font-size: 18px;
-    line-height: 30px;
-}
+    .text-align-center {
+        text-align: center;
+    }
 
-.item-radio {
-    display: inline-block;
-    border: 0px;
-}
+    .text-align-right {
+        text-align: right;
+    }
 
-.bar.bar-light {
-    border: 0px;
-}
+    .bold {
+        font-weight: bold;
+    }
 
-.background-violet {
-    background: $violet;
-    color: $white;
-}
-
-.wine-category {
-    #navbar {
-        width: 90%;
+    .margin-auto {
         margin: 0 auto;
     }
-    div {
-        font-size: 14px;
-        display: inline-block;
-        padding: 10px;
-        height: 40px;
+
+
+
+    // ICONS
+    .pin {
+        background: url('/img/PNG/icon_pin.png');
+        width: 25px;
+        height: 38px;
+        background-size: 100%;
+        &.small {
+            width: 13px;
+            height: 20px;
+        } 
+        &.right{    
+            margin-left: 90%;
+        } 
+
+    }
+
+    //BUTTONS
+    .button.button-stable {
+        background: $violet;
+        color: $white;
+        margin: 0 auto;
+        &:hover {
+            color: $white;
+        }
+    }
+
+    //IONIC TEMPLATE UPDATES
+    .tabs {
+        @include tabs-striped($pink,$pink,$violet);
+        height: 100px;
+        border: 0px;
+
+        .tab-item .icon, .tab-title {
+            color: $white;
+        }
+
+        a {
+            padding: 12px;
+        }
+
+        .tab-item-active {
+            background-color: $pink;
+            .icon, .tab-title {
+                color: $white;
+            }
+        }
+    }
+
+    .item-text-wrap {
         text-align: center;
-        font-weight: bold;
-        border-radius: 15px;
-        cursor: pointer;
-        width: 120px;
     }
 
-    .radio-content {
-        .item-content {
-            border-radius: 10px;
-            height: 10px;
-            line-height: 0;
+    .item-divider {
+        background: $white;
+        width: 100%;
+        text-align: center;
+    }
+
+    .tab-item .icon {
+        display: block;
+        margin: 0 auto;
+        height: 45px;
+        font-size: 45px;
+    }
+
+    .item {
+        border: 0px;
+        .item-input {
+            select {
+                width: 100%;
+                text-align: center;
+                border: 1px solid $violet;
+                height: 40px;
+                text-indent: 39%;
+                font-size: 23px;
+                background: white; 
+            }
+        }
+    }
+
+    .item-select {
+        border: 1px solid $violet;
+        margin-top: 8px;
+    }
+
+    .tabs-icon-top>.tabs .tab-item {
+        font-size: 18px;
+        line-height: 30px;
+    }
+
+    .nav-bar-block {
+        display: none;
+    }
+
+    .bar.bar-light {
+        border: 0px;
+        height: 80px;
+    }
+
+    .background-violet {
+        background: $violet;
+        color: $white;
+    }
+
+    .bar-header {
+        border-bottom-width: 0px;
+    }
+
+
+    #navbar {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+
+        div {
+            font-size: 14px;
+            display: inline-block;
+            padding: 10px;
+            height: 40px;
+            text-align: center;
             font-weight: bold;
-            border: 0px;
-            background: $violet!important;
-            color: $white;
-        }
-        .item-radio input:checked {
-            background: $white;
-            color: $white;
-        }
-
-        .radio-icon {
-            color: $white;
-            line-height: 0;
-            height: 0px;
-            top: -10px;
+            border-radius: 15px;
+            cursor: pointer;
+            width: 120px;
         }
     }
-}
-// CARD 
-.padding {
+
+    // CARD 
+    .card-wrapper {
+        height: 100vh;
+    }
+
     .card {
         display: inline-block;
         width: 24%;
@@ -174,52 +239,36 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
         margin-right: 0.5%;
         height: 225px;
     }
-}
 
-.text-uppercase {
-    text-transform: uppercase;
-}
-
-.margin-top-35 {
-    margin-top: 35px
-}
-
-.margin-auto {
-    margin: 0px auto;
-}
-
-.bold {
-    font-weight: bold;
-}
-
-.card-title-background {
-    background: $violet;
-    color: $white;
-    .card-title, .card-description {
-        color: white;
+    .card-title-background {
+        background: $violet;
+        color: $white;
+        .card-title, .card-description {
+            color: white;
+        }
+        .card-title {
+            font-size: 12px;
+            display: inline;
+        }
+        .card-description {
+            font-weight: bold;
+            font-size: 16px;
+        }   
     }
-    .card-title {
-        font-size: 12px;
-        display: inline;
-    }
-    .card-description {
-        font-weight: bold;
-        font-size: 16px;
-    }   
-}
 
-.region-list {
-    font-size: 14px;
-    li {
-        margin-top: 3px;
-        margin-bottom: 3px;
-        list-style: none;
-    }
-    a {
-        color: $violet;
-        cursor: pointer;
-    }
-    a:hover {
-        font-size: 16px;
+    .region-list {
+        font-size: 14px;
+        li {
+            margin-top: 3px;
+            margin-bottom: 3px;
+            list-style: none;
+        }
+        a {
+            color: $violet;
+            cursor: pointer;
+        }
+        a:hover {
+            font-size: 16px;
+        }
     }
 }

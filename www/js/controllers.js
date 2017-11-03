@@ -1,13 +1,24 @@
-angular.module('starter.controllers', [])
+controllers = angular.module('starter.controllers', []);
 
-    .controller('ExhaustCtrl', function($scope, $http, $cordovaToast, Regions) {
+controllers.controller('ExhaustCtrl', function($scope, $http, $cordovaToast, Number, Region, User, Winelist, Wharehouse, Utility, $ionicLoading) {
+    $scope.click = false;
+    $scope.wineCategory = '';
+    
+    $ionicLoading.show();
+    //to be changed with user_id - loading the scope variable
+    User.getNavisionId('58ac178cd36e205ca905da14').then(function(navision_id) {
+        $scope.navision_id = navision_id;
+        User.getActiveWinelistId(navision_id).then(function(winelist_id) {
+            Winelist.getWinelist(winelist_id).then(function(wines) {
+                $scope.wines = wines;
+                $ionicLoading.hide();
+            })
+        })
+    });
 
-    $scope.click = function (){
-        $cordovaToast.showShortTop('Here is a message')
-    }
+    $scope.regions = Region.all();
 
-
-    $scope.regions = Regions.all();
+    $scope.numbers = Number.all();
 
     $scope.setWineRegion = function (region) {
         $scope.wineRegion = region;
@@ -17,41 +28,12 @@ angular.module('starter.controllers', [])
         $scope.wineCategory = category;
     }
 
-    /* Get the wine list of the logged user */
-    $scope.getWineList = function () {
-        $http.get('https://tws-middleware-staging.herokuapp.com/customer/58ac178cd36e205ca905da14').then(function (results) {
-            $scope.navision_id = results.data["0"].data["0"].navision_id;
-            $http.get('https://tws-middleware-staging.herokuapp.com/activeWinelist/' + results.data["0"].data["0"].navision_id).then(function (results) {
-                $http.get('https://tws-middleware-staging.herokuapp.com/winelist/' + results.data["0"].data["0"].No).then(function (results) {
-                    $scope.wines = results.data["0"].data;
-                });
-            });  
+    $scope.wharehouseExhaust = function (wine_id, quantity, wine_year, location_id, winemaker_name, wine_name) {
+        $scope.click = true;
+        Wharehouse.postWharehouseExhaust($scope.navision_id, wine_id, quantity, wine_year, location_id, winemaker_name, wine_name).then(function(results){
+            var popup = Utility.confirmPopup('Magazzino aggiornato con successo.','green');
+            Utility.closePopup(popup,2000);
+            Utility.refreshPage('tab.exhaust');
         })
     };
-
 })
-
-    .controller('ChatsCtrl', function($scope, Chats) {
-    // With the new view caching in Ionic, Controllers are only called
-    // when they are recreated or on app start, instead of every page change.
-    // To listen for when this page is active (for example, to refresh data),
-    // listen for the $ionicView.enter event:
-    //
-    //$scope.$on('$ionicView.enter', function(e) {
-    //});
-
-    $scope.chats = Chats.all();
-    $scope.remove = function(chat) {
-        Chats.remove(chat);
-    };
-})
-
-    .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-    $scope.chat = Chats.get($stateParams.chatId);
-})
-
-    .controller('AccountCtrl', function($scope) {
-    $scope.settings = {
-        enableFriends: true
-    };
-});

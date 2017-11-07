@@ -26,7 +26,7 @@ service.factory('Region', function() {
         id: 4,
         name: 'Em. Romagna',
         letter: 'E',
-        filter: '',
+        filter: 'EMROMAGNA',
     }, {
         id: 5,
         name: 'Friuli',
@@ -146,7 +146,6 @@ service.factory('Number', function() {
     };
 })
 
-
 service.factory('Winelist', function($http) {
     return {
         //return wines from a specific winelist - by winelist_id
@@ -178,6 +177,23 @@ service.factory('Wharehouse', function($http) {
                 return results;
             });
             return promise;
+        },
+        getWharehouseExhaust: function(customer_id) {
+            var promise = $http.get('https://tws-middleware-staging.herokuapp.com/exhaustByCustomerId/' + customer_id).then(function (results) {
+                return results.data["0"].data.value;
+            });
+            return promise;
+        },
+        exhaustRectification: function(exhaust_id, download_date, customer_id, location_id, wine_id, wine_year, wine_name, winemaker_name, quantity, etag) {
+            var promise = $http.patch("https://tws-middleware-staging.herokuapp.com/exhaust/" + exhaust_id + "/" + download_date + "/" + customer_id + "/" + location_id + "/" + wine_id + "/" + wine_year, JSON.stringify({
+                "Quantity": quantity,
+                "WineMaker_Name": winemaker_name,
+                "Description": wine_name,
+                "ETag": etag
+            })).then(function (results) {
+                return results;
+            });
+            return promise;  
         }
     };
 })

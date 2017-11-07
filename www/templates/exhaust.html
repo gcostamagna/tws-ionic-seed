@@ -2,44 +2,71 @@
     <ion-nav-bar>   
         <div class="bar bar-header">
             <div id="navbar" >
-                <div  data-ng-click="setWineCategory('')" ng-class="'' == wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'" class="text-uppercase">Tutti i vini</div>
-                <div  data-ng-click="setWineCategory('Bianco')" ng-class="'Bianco' == wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'" class="text-uppercase">Bianco</div>
-                <div  data-ng-click="setWineCategory('Rosso')" ng-class="'Rosso' == wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'" class="text-uppercase">Rosso</div>
-                <div  data-ng-click="setWineCategory('Bollicine')" ng-class="'Bollicine' == wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'" class="text-uppercase">Bollicine</div>
-                <div  data-ng-click="setWineCategory('Rosati')" ng-class="'Rosati' == wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'" class="text-uppercase">Rosati</div>
-                <div  data-ng-click="setWineCategory('Champagne')" ng-class="'Champagne' == wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'" class="text-uppercase">Champagne</div>
-                <div  data-ng-click="setWineCategory('Dolce')" ng-class="'Dolce'== wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'" class="text-uppercase">Vini dolci</div>
+                <div data-ng-click="setWineCategory('')" 
+                     ng-class="'' == wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'">
+                    Tutti i vini
+                </div>
+                <div data-ng-click="setWineCategory('Bianco')"
+                     ng-class="'Bianco' == wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'">
+                    Bianco
+                </div>
+                <div data-ng-click="setWineCategory('Rosso')" 
+                     ng-class="'Rosso' == wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'">
+                    Rosso
+                </div>
+                <div data-ng-click="setWineCategory('Bollicine')" 
+                     ng-class="'Bollicine' == wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'">
+                    Bollicine
+                </div>
+                <div data-ng-click="setWineCategory('Rosati')" 
+                     ng-class="'Rosati' == wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'">
+                    Rosati
+                </div>
+                <div data-ng-click="setWineCategory('Champagne')" 
+                     ng-class="'Champagne' == wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'">
+                    Champagne
+                </div>
+                <div data-ng-click="setWineCategory('Dolce')" 
+                     ng-class="'Dolce'== wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'" >
+                    Vini dolci
+                </div>
             </div>
         </div>
     </ion-nav-bar>
     <ion-content>
         <div class="row">
             <!-- {{wines}} -->
-            <ion-scroll class="col col-90" style="height: 80vh">
+            <ion-scroll class="col col-90" 
+                        style="height: 80vh">
                 <div class="card-wrapper">
-                    <div class="card" ng-repeat = "wine in wines | filter:{Subcategory:wineCategory, Territory_Code:wineRegion}">
+                    <div class="card" 
+                         ng-repeat = "wine in wines | filter:{Subcategory:wineCategory, Territory_Code:wineRegion}">
                         <div class="item item-divider card-title-background">
                             <div class="card-title text-uppercase">{{wine.Winemaker_Name}} </div>
                             <div class="card-description text-uppercase">{{wine.Variant_Description}} {{wine.Variant_Code!=0 ? wine.Variant_Code : ''}}</div>
                         </div>
                         <div class="item item-text-wrap">
-                            Hai <strong>{{wine.Current_Stock_Quantity - wine.Current_Basket_Quantity}}</strong> bottiglie
+                            <p>Hai <strong>{{wine.Current_Stock_Quantity - wine.Current_Basket_Quantity}}</strong> bottiglie </p>
                             <div class="item item-input">
-                                <select ng-model="quantity" ng-disabled="wine.Current_Stock_Quantity - wine.Current_Basket_Quantity == 0">
-                                    <option ng-value = "number.value" ng-repeat="number in numbers | limitTo: wine.Current_Stock_Quantity - wine.Current_Basket_Quantity">{{number.value}}</option>
+                                <select ng-model="quantity" 
+                                        ng-disabled="wine.Current_Stock_Quantity - wine.Current_Basket_Quantity == 0">
+                                    <option ng-value = "number.value" 
+                                            ng-repeat="number in numbers | limitTo: wine.Current_Stock_Quantity - wine.Current_Basket_Quantity">{{number.value}}</option>
                                 </select>
                             </div>
                         </div>
                         <div class="item item-divider">
-                            <button class="button button-stable text-center text-uppercase" ng-disabled="wine.Current_Stock_Quantity - wine.Current_Basket_Quantity == 0 || click == true" ng-click="wharehouseExhaust(wine.Item_No, quantity, wine.Variant_Code, wine.Location_Code, wine.Winemaker_Name, wine.Variant_Description)">
-                                Scarica <strong>{{quantity}}</strong> bottiglie 
+                            <button class="button button-stable text-center text-uppercase" 
+                                    ng-disabled="wine.Current_Stock_Quantity - wine.Current_Basket_Quantity == 0 || click == true" 
+                                    ng-click="wharehouseExhaust(wine.Item_No, quantity, wine.Variant_Code, wine.Location_Code, wine.Winemaker_Name, wine.Variant_Description)">
+                                <span class="ion-arrow-down-c"></span> Scarica <strong>{{quantity}}</strong> {{quantity == 1 ? 'Bottiglia' : 'Bottiglie'}}
                             </button>
                         </div>
                     </div>
                 </div>
             </ion-scroll>
 
-            <ion-scroll class="col col-10">
+            <ion-scroll class="col col-10" overflow-scroll="false">
                 <div class="pin small right"></div>
                 <ion-list class="region-list"> 
                     <li ng-repeat="region in regions" class="text-align-right">

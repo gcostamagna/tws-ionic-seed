@@ -1,0 +1,84 @@
+<ion-view view-title="Winelist">
+    <ion-nav-bar>   
+        <div class="bar bar-header">
+            <div id="navbar" >
+                <div data-ng-click="setWineCategory('')" 
+                     ng-class="'' == wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'">
+                    Tutti i vini
+                </div>
+                <div data-ng-click="setWineCategory('Bianco')"
+                     ng-class="'Bianco' == wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'">
+                    Bianco
+                </div>
+                <div data-ng-click="setWineCategory('Rosso')" 
+                     ng-class="'Rosso' == wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'">
+                    Rosso
+                </div>
+                <div data-ng-click="setWineCategory('Bollicine')" 
+                     ng-class="'Bollicine' == wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'">
+                    Bollicine
+                </div>
+                <div data-ng-click="setWineCategory('Rosati')" 
+                     ng-class="'Rosati' == wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'">
+                    Rosati
+                </div>
+                <div data-ng-click="setWineCategory('Champagne')" 
+                     ng-class="'Champagne' == wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'">
+                    Champagne
+                </div>
+                <div data-ng-click="setWineCategory('Dolce')" 
+                     ng-class="'Dolce'== wineCategory ? 'text-uppercase background-violet' : 'text-uppercase'" >
+                    Vini dolci
+                </div>
+            </div>
+        </div>
+    </ion-nav-bar>
+    <ion-content>
+        <div class="row">
+            <div  class="col col-90">
+                <div class="row table-header text-uppercase">
+                    <div class="col col-30">Vino</div>
+                    <div class="col col-10">Regione</div>
+                    <div class="col col-10">Categoria</div>
+                    <div class="col col-10">€ acquisto</div>
+                    <div class="col col-10">€ in carta vini</div>
+                    <div class="col col-10">Ricarico</div>
+                    <div class="col col-10">Margine</div>
+                    <div class="col col-10"></div>
+                </div>
+                <ion-scroll style="height: 80vh">
+                    <div class="row table-row" ng-repeat="wine in wines | filter:{Subcategory:wineCategory, Territory_Code:wineRegion}">
+                        <div class="col col-30">{{wine.Winemaker_Name}} {{wine.Variant_Description}} {{wine.Variant_Code}} </div>
+                        <div class="col col-10">{{wine.Territory_Code}}</div>
+                        <div class="col col-10">{{wine.Subcategory}}</div>
+                        <div class="col col-10">{{wine.Margin_Price}}&euro;</div>
+                        <div class="col col-10">{{wine.Customer_Price_Wine_Sheet}}&euro;</div>
+                        <div class="col col-10">{{36 / wine.Margin_Price  | number:1}}</div>
+                        <div class="col col-10">{{(wine.Margin_Price / 36) * 100 | number:0}}%</div>
+                        <div class="col col-10">
+                            <button class="button button-stable button-small text-center text-uppercase" 
+                                    ng-disabled="" 
+                                    ng-click="">
+                                Modifica&nbsp;&nbsp;<span class="ion-edit"></span>
+                            </button>
+                        </div>
+                    </div>
+                </ion-scroll>
+            </div>
+            <ion-scroll class="col col-10" 
+                        overflow-scroll="false">
+                <div class="ion-ios7-location right"></div>
+                <ion-list class="region-list"> 
+                    <li ng-repeat="region in regions" 
+                        class="text-align-right">
+                        <a data-ng-click="setWineRegion('{{region.filter}}')" 
+                           ng-class="region.filter == wineRegion ? 'text-uppercase bold' : ''">{{region.name}} {{region.letter}}
+                        </a>
+                    </li>
+                </ion-list>
+            </ion-scroll>
+        </div>
+    </ion-content>
+</ion-view>
+
+

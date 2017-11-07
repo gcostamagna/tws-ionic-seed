@@ -9829,6 +9829,13 @@ a.button {
 .platform-android .green .popup-buttons, .platform-browser .green .popup-buttons, .platform-ipad .green .popup-buttons, .platform-ios .green .popup-buttons, .platform-webview .green .popup-buttons {
   display: none; }
 
+.platform-android .text-pink, .platform-browser .text-pink, .platform-ipad .text-pink, .platform-ios .text-pink, .platform-webview .text-pink {
+  color: #dda6c0; }
+
+.platform-android .text-overflow, .platform-browser .text-overflow, .platform-ipad .text-overflow, .platform-ios .text-overflow, .platform-webview .text-overflow {
+  text-overflow: ellipsis;
+  overflow: hidden; }
+
 .platform-android .loading-backdrop, .platform-browser .loading-backdrop, .platform-ipad .loading-backdrop, .platform-ios .loading-backdrop, .platform-webview .loading-backdrop {
   background-color: white; }
 
@@ -9855,6 +9862,9 @@ a.button {
 .platform-android .text-uppercase, .platform-browser .text-uppercase, .platform-ipad .text-uppercase, .platform-ios .text-uppercase, .platform-webview .text-uppercase {
   text-transform: uppercase; }
 
+.platform-android .text-lowercase, .platform-browser .text-lowercase, .platform-ipad .text-lowercase, .platform-ios .text-lowercase, .platform-webview .text-lowercase {
+  text-transform: lowercase; }
+
 .platform-android .text-align-center, .platform-browser .text-align-center, .platform-ipad .text-align-center, .platform-ios .text-align-center, .platform-webview .text-align-center {
   text-align: center; }
 
@@ -9867,21 +9877,14 @@ a.button {
 .platform-android .margin-auto, .platform-browser .margin-auto, .platform-ipad .margin-auto, .platform-ios .margin-auto, .platform-webview .margin-auto {
   margin: 0 auto; }
 
-.platform-android .pin, .platform-browser .pin, .platform-ipad .pin, .platform-ios .pin, .platform-webview .pin {
-  background: url("/img/PNG/icon_pin.png");
-  width: 25px;
-  height: 38px;
-  background-size: 100%; }
-  .platform-android .pin.small, .platform-browser .pin.small, .platform-ipad .pin.small, .platform-ios .pin.small, .platform-webview .pin.small {
-    width: 13px;
-    height: 20px; }
-  .platform-android .pin.right, .platform-browser .pin.right, .platform-ipad .pin.right, .platform-ios .pin.right, .platform-webview .pin.right {
-    margin-left: 90%; }
+.platform-android .right, .platform-browser .right, .platform-ipad .right, .platform-ios .right, .platform-webview .right {
+  margin-left: 95%; }
 
 .platform-android .button.button-stable, .platform-browser .button.button-stable, .platform-ipad .button.button-stable, .platform-ios .button.button-stable, .platform-webview .button.button-stable {
   background: #3a1826;
   color: #fff;
-  margin: 0 auto; }
+  margin: 0 auto;
+  box-shadow: 1px 1px 0px 1px #dda6c0; }
   .platform-android .button.button-stable:hover, .platform-browser .button.button-stable:hover, .platform-ipad .button.button-stable:hover, .platform-ios .button.button-stable:hover, .platform-webview .button.button-stable:hover {
     color: #fff; }
 
@@ -9982,7 +9985,8 @@ a.button {
   width: 24%;
   margin-left: 0.5%;
   margin-right: 0.5%;
-  height: 225px; }
+  height: auto;
+  margin-top: 10px; }
 
 .platform-android .card-title-background, .platform-browser .card-title-background, .platform-ipad .card-title-background, .platform-ios .card-title-background, .platform-webview .card-title-background {
   background: #3a1826;
@@ -9999,11 +10003,28 @@ a.button {
 .platform-android .region-list, .platform-browser .region-list, .platform-ipad .region-list, .platform-ios .region-list, .platform-webview .region-list {
   font-size: 14px; }
   .platform-android .region-list li, .platform-browser .region-list li, .platform-ipad .region-list li, .platform-ios .region-list li, .platform-webview .region-list li {
-    margin-top: 3px;
-    margin-bottom: 3px;
+    margin-top: 4px;
+    margin-bottom: 4px;
     list-style: none; }
   .platform-android .region-list a, .platform-browser .region-list a, .platform-ipad .region-list a, .platform-ios .region-list a, .platform-webview .region-list a {
     color: #3a1826;
     cursor: pointer; }
   .platform-android .region-list a:hover, .platform-browser .region-list a:hover, .platform-ipad .region-list a:hover, .platform-ios .region-list a:hover, .platform-webview .region-list a:hover {
     font-size: 16px; }
+
+.platform-android .table-header, .platform-browser .table-header, .platform-ipad .table-header, .platform-ios .table-header, .platform-webview .table-header {
+  color: #dda6c0;
+  font-weight: bold;
+  font-size: 11px;
+  padding: 15px; }
+
+.platform-android .table-row, .platform-browser .table-row, .platform-ipad .table-row, .platform-ios .table-row, .platform-webview .table-row {
+  background: white;
+  border-bottom: 1px solid black;
+  padding: 15px;
+  color: #3a1826;
+  margin-top: 1px; }
+
+.platform-android .BIANCO, .platform-browser .BIANCO, .platform-ipad .BIANCO, .platform-ios .BIANCO, .platform-webview .BIANCO {
+  color: beige;
+  font-size: 25px; }

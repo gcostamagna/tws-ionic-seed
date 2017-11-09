@@ -9817,9 +9817,10 @@ a.button {
 
 .platform-android .green .popup, .platform-browser .green .popup, .platform-ipad .green .popup, .platform-ios .green .popup, .platform-webview .green .popup {
   position: absolute;
+  left: 0px;
   top: 0px;
   border: 0px;
-  background: #00DE11;
+  background: #81d186;
   width: 100%; }
 
 .platform-android .green .popup-title, .platform-browser .green .popup-title, .platform-ipad .green .popup-title, .platform-ios .green .popup-title, .platform-webview .green .popup-title {
@@ -9835,6 +9836,12 @@ a.button {
 .platform-android .text-overflow, .platform-browser .text-overflow, .platform-ipad .text-overflow, .platform-ios .text-overflow, .platform-webview .text-overflow {
   text-overflow: ellipsis;
   overflow: hidden; }
+
+.platform-android .text-bold, .platform-browser .text-bold, .platform-ipad .text-bold, .platform-ios .text-bold, .platform-webview .text-bold {
+  font-weight: bold; }
+
+.platform-android .font-20, .platform-browser .font-20, .platform-ipad .font-20, .platform-ios .font-20, .platform-webview .font-20 {
+  font-size: 20px; }
 
 .platform-android .loading-backdrop, .platform-browser .loading-backdrop, .platform-ipad .loading-backdrop, .platform-ios .loading-backdrop, .platform-webview .loading-backdrop {
   background-color: white; }
@@ -9889,23 +9896,9 @@ a.button {
     color: #fff; }
 
 .platform-android .tabs, .platform-browser .tabs, .platform-ipad .tabs, .platform-ios .tabs, .platform-webview .tabs {
+  background: #3a1826;
   height: 100px;
   border: 0px; }
-  .tabs {
-    background-color: #3a1826; }
-  .tab-item {
-    color: rgba(221, 166, 192, 0.4);
-    opacity: 1; }
-    .tab-item .badge {
-      opacity: 0.4; }
-    .tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
-      margin-top: -2px;
-      color: #dda6c0;
-      border-style: solid;
-      border-width: 2px 0 0 0;
-      border-color: #dda6c0; }
-  .platform-android .tabs.tabs-top .tab-item.tab-item-active .badge, .platform-android .tabs.tabs-top .tab-item.active .badge, .platform-android .tabs.tabs-top .tab-item.activated .badge, .platform-browser .tabs.tabs-top .tab-item.tab-item-active .badge, .platform-browser .tabs.tabs-top .tab-item.active .badge, .platform-browser .tabs.tabs-top .tab-item.activated .badge, .platform-ipad .tabs.tabs-top .tab-item.tab-item-active .badge, .platform-ipad .tabs.tabs-top .tab-item.active .badge, .platform-ipad .tabs.tabs-top .tab-item.activated .badge, .platform-ios .tabs.tabs-top .tab-item.tab-item-active .badge, .platform-ios .tabs.tabs-top .tab-item.active .badge, .platform-ios .tabs.tabs-top .tab-item.activated .badge, .platform-webview .tabs.tabs-top .tab-item.tab-item-active .badge, .platform-webview .tabs.tabs-top .tab-item.active .badge, .platform-webview .tabs.tabs-top .tab-item.activated .badge {
-    top: 4%; }
   .platform-android .tabs .tab-item .icon, .platform-android .tabs .tab-title, .platform-browser .tabs .tab-item .icon, .platform-browser .tabs .tab-title, .platform-ipad .tabs .tab-item .icon, .platform-ipad .tabs .tab-title, .platform-ios .tabs .tab-item .icon, .platform-ios .tabs .tab-title, .platform-webview .tabs .tab-item .icon, .platform-webview .tabs .tab-title {
     color: #fff; }
   .platform-android .tabs a, .platform-browser .tabs a, .platform-ipad .tabs a, .platform-ios .tabs a, .platform-webview .tabs a {
@@ -9914,6 +9907,16 @@ a.button {
     background-color: #dda6c0; }
     .platform-android .tabs .tab-item-active .icon, .platform-android .tabs .tab-item-active .tab-title, .platform-browser .tabs .tab-item-active .icon, .platform-browser .tabs .tab-item-active .tab-title, .platform-ipad .tabs .tab-item-active .icon, .platform-ipad .tabs .tab-item-active .tab-title, .platform-ios .tabs .tab-item-active .icon, .platform-ios .tabs .tab-item-active .tab-title, .platform-webview .tabs .tab-item-active .icon, .platform-webview .tabs .tab-item-active .tab-title {
       color: #fff; }
+
+.platform-android .tabs-positive > .tabs,
+.platform-android .tabs.tabs-positive, .platform-browser .tabs-positive > .tabs,
+.platform-browser .tabs.tabs-positive, .platform-ipad .tabs-positive > .tabs,
+.platform-ipad .tabs.tabs-positive, .platform-ios .tabs-positive > .tabs,
+.platform-ios .tabs.tabs-positive, .platform-webview .tabs-positive > .tabs,
+.platform-webview .tabs.tabs-positive {
+  border-color: #dda6c0;
+  background-color: #3a1826;
+  color: #fff; }
 
 .platform-android .item-text-wrap, .platform-browser .item-text-wrap, .platform-ipad .item-text-wrap, .platform-ios .item-text-wrap, .platform-webview .item-text-wrap {
   text-align: center; }
@@ -9989,10 +9992,10 @@ a.button {
   margin-top: 10px; }
 
 .platform-android .card-title-background, .platform-browser .card-title-background, .platform-ipad .card-title-background, .platform-ios .card-title-background, .platform-webview .card-title-background {
-  background: #3a1826;
-  color: #fff; }
+  background: #fff;
+  color: #3a1826; }
   .platform-android .card-title-background .card-title, .platform-android .card-title-background .card-description, .platform-browser .card-title-background .card-title, .platform-browser .card-title-background .card-description, .platform-ipad .card-title-background .card-title, .platform-ipad .card-title-background .card-description, .platform-ios .card-title-background .card-title, .platform-ios .card-title-background .card-description, .platform-webview .card-title-background .card-title, .platform-webview .card-title-background .card-description {
-    color: white; }
+    color: #3a1826; }
   .platform-android .card-title-background .card-title, .platform-browser .card-title-background .card-title, .platform-ipad .card-title-background .card-title, .platform-ios .card-title-background .card-title, .platform-webview .card-title-background .card-title {
     font-size: 12px;
     display: inline; }

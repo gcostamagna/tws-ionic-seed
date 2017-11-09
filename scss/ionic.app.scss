@@ -18,7 +18,7 @@ $dark:                            #444 !default;
 $violet: #3a1826;
 $white: #fff;
 $pink: #dda6c0;
-$green: #00DE11;
+$green: #81d186;
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
@@ -31,6 +31,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     .green{
         .popup {
             position: absolute;
+            left: 0px;
             top: 0px;
             border: 0px;
             background: $green;
@@ -52,6 +53,14 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     .text-overflow {
         text-overflow: ellipsis;
         overflow: hidden;
+    }
+    
+    .text-bold {
+        font-weight: bold;
+    }
+    
+    .font-20 {
+        font-size: 20px;
     }
 
     //LOADING CLASS
@@ -131,7 +140,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
     //IONIC TEMPLATE UPDATES
     .tabs {
-        @include tabs-striped($pink,$pink,$violet);
+        background: $violet;
         height: 100px;
         border: 0px;
 
@@ -150,6 +159,12 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
             }
         }
     }
+
+    .tabs-positive > .tabs,
+    .tabs.tabs-positive {
+        border-color: $pink;
+        background-color: $violet;
+        color: #fff; }
 
     .item-text-wrap {
         text-align: center;
@@ -245,10 +260,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     }
 
     .card-title-background {
-        background: $violet;
-        color: $white;
+        background: $white;
+        color: $violet;
         .card-title, .card-description {
-            color: white;
+            color: $violet;
         }
         .card-title {
             font-size: 12px;
@@ -291,7 +306,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
         color: $violet;
         margin-top: 1px;
     }
-    
+
     .BIANCO {
         color: beige;
         font-size: 25px;

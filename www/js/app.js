@@ -62,7 +62,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
             }
         }
     })
-    
+
         .state('tab.chat-detail', {
         url: '/chats/:chatId',
         views: {
@@ -80,6 +80,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
             'winelist': {
                 templateUrl: 'templates/winelist.html',
                 controller: 'WinelistCtrl'
+            }
+        }
+    })
+
+        .state('tab.wharehouse', {
+        url: '/wharehouse',
+        cache: false,
+        views: {
+            'wharehouse': {
+                templateUrl: 'templates/wharehouse.html',
+                controller: 'WharehouseCtrl'
             }
         }
     });

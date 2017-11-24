@@ -16,7 +16,7 @@
         <div class="row">
             <ion-scroll class="col col-90" style="height: 80vh">
                 <div class="card-wrapper">
-                    <div class="card" ng-repeat = "wine in wines "> <!-- | filter:{Subcategory:wineCategory, Territory_Code:wineRegion} -->
+                    <div class="card" ng-repeat = "wine in wines | filter:{Subcategory:wineCategory, Regione:wineRegion}">
                         <div class="item item-divider card-title-background">
                             <div class="card-title text-uppercase">{{wine.WineMaker_Name}} </div>
                             <div class="card-description text-uppercase">{{wine.Description}} {{wine.Variant_Code!=0 ? wine.Variant_Code : ''}}</div>

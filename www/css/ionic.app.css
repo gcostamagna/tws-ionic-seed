@@ -10006,8 +10006,8 @@ a.button {
 .platform-android .region-list, .platform-browser .region-list, .platform-ipad .region-list, .platform-ios .region-list, .platform-webview .region-list {
   font-size: 14px; }
   .platform-android .region-list li, .platform-browser .region-list li, .platform-ipad .region-list li, .platform-ios .region-list li, .platform-webview .region-list li {
-    margin-top: 4px;
-    margin-bottom: 4px;
+    margin-top: 0px;
+    margin-bottom: 6px;
     list-style: none; }
   .platform-android .region-list a, .platform-browser .region-list a, .platform-ipad .region-list a, .platform-ios .region-list a, .platform-webview .region-list a {
     color: #3a1826;

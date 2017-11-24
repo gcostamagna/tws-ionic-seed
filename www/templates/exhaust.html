@@ -34,8 +34,16 @@
         </div>
     </ion-nav-bar>
     <ion-content>
-        <div class="row">
-            <!-- {{wines}} -->
+        <button
+                ng-if="!auth.isAuthenticated()"
+                class="button button-block button-positive"
+                ng-click="auth.login()">
+            Login
+        </button>
+
+
+        <div class="row" ng-if="auth.isAuthenticated()">
+            <!--            {{wines}}  -->
             <ion-scroll class="col col-90" 
                         style="height: 80vh">
                 <div class="card-wrapper">
@@ -46,19 +54,19 @@
                             <div class="card-description text-uppercase">{{wine.Variant_Description}} {{wine.Variant_Code!=0 ? wine.Variant_Code : ''}}</div>
                         </div>
                         <div class="item item-text-wrap">
-                            <p>Hai <strong>{{wine.Current_Stock_Quantity - wine.Current_Basket_Quantity}}</strong> bottiglie </p>
+                            <p>Hai <strong>{{wine.Current_Variant_Stock_Quantity - wine.Current_Basket_Quantity}}</strong> bottiglie </p>
                             <div class="item item-input">
                                 <select ng-model="quantity" 
-                                        ng-disabled="wine.Current_Stock_Quantity - wine.Current_Basket_Quantity == 0">
+                                        ng-disabled="wine.Current_Variant_Stock_Quantity - wine.Current_Basket_Quantity <= 0">
                                     <option ng-value = "number.value" 
-                                            ng-repeat="number in numbers | limitTo: wine.Current_Stock_Quantity - wine.Current_Basket_Quantity">{{number.value}}</option>
+                                            ng-repeat="number in numbers | limitTo: wine.Current_Variant_Stock_Quantity - wine.Current_Basket_Quantity">{{number.value}}</option>
                                 </select>
                             </div>
                         </div>
                         <div class="item item-divider">
                             <button class="button button-stable text-center text-uppercase" 
-                                    ng-disabled="wine.Current_Stock_Quantity - wine.Current_Basket_Quantity == 0 || click == true" 
-                                    ng-click="wharehouseExhaust(wine.Item_No, quantity, wine.Variant_Code, wine.Location_Code, wine.Winemaker_Name, wine.Variant_Description)">
+                                    ng-disabled="wine.Current_Variant_Stock_Quantity - wine.Current_Basket_Quantity <= 0 || click == true" 
+                                    ng-click="wharehouseExhaust(wine.Item_No, quantity, wine.Variant_Code, wine.Location_Code, wine.Winemaker_Name, wine.Variant_Description, wine.Territory_Code, wine.Subcategory)">
                                 <span class="ion-arrow-down-c"></span> Scarica <strong>{{quantity}}</strong> {{quantity == 1 ? 'Bottiglia' : 'Bottiglie'}}
                             </button>
                         </div>
@@ -66,7 +74,7 @@
                 </div>
             </ion-scroll>
 
-            <ion-scroll class="col col-10" overflow-scroll="false">
+            <div class="col col-10" overflow-scroll="false">
                 <div class="ion-ios7-location right"></div>
                 <ion-list class="region-list"> 
                     <li ng-repeat="region in regions" class="text-align-right">
@@ -74,7 +82,7 @@
                         </a>
                     </li>
                 </ion-list>
-            </ion-scroll>
+            </div>
         </div>
     </ion-content>
 </ion-view>

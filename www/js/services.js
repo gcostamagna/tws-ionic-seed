@@ -2326,7 +2326,8 @@ service.factory('Winelist', function($http) {
 service.factory('Wharehouse', function($http) {
     return {
         //return wines from a specific winelist - by winelist_id
-        postWharehouseExhaust: function(navision_id, wine_id, quantity, wine_year, location_id, winemaker_name, wine_name) {
+        postWharehouseExhaust: function(navision_id, wine_id, quantity, wine_year, location_id, winemaker_name, wine_name, region, tipology) {
+            alert(region);
             var exhaust_date = new Date();
             var promise = $http.post('https://tws-middleware-staging.herokuapp.com/warehouseExhaust/', JSON.stringify({
                 "Basket_No": "E" + exhaust_date.getTime(),
@@ -2337,7 +2338,9 @@ service.factory('Wharehouse', function($http) {
                 "Variant_Code": wine_year,
                 "Quantity": quantity,
                 "Description": wine_name,
-                "WineMaker_Name": winemaker_name
+                "WineMaker_Name": winemaker_name,
+                "Regione": region,
+                "Subcategory": tipology
             })).then(function (results) {
                 return results;
             });
@@ -2398,6 +2401,7 @@ service.factory('User', function($http) {
         //return the active winelist id of a user - by navision_id
         getActiveWinelistId: function(navision_id) {
             var promise = $http.get('https://tws-middleware-staging.herokuapp.com/activeWinelist/' + navision_id).then(function (results) {
+                console.log("NAVISION ID " + navision_id);
                 return results.data["0"].data["0"].No;
             });
             return promise;
@@ -2405,3 +2409,81 @@ service.factory('User', function($http) {
 
     };
 })
+
+service.factory('Auth', function($rootScope) {
+
+  var Auth0Cordova = require('@auth0/cordova');
+  var auth0 = require('auth0-js');
+  var userProfile = {};
+
+  var auth0Config = {
+    clientId: 'OUwdVuWtRMytocw5Rgs7T6UVja0sHGaO',
+    domain: 'thewinesider.eu.auth0.com',
+    callbackURL: location.href,
+    packageIdentifier: 'io.ionic.starter'
+  };
+
+  auth0Config.clientID = auth0Config.clientId;
+
+  var webAuth = new auth0.WebAuth(auth0Config);
+
+  function setSession(authResult) {
+    var expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
+    window.localStorage.setItem('access_token', authResult.accessToken);
+    window.localStorage.setItem('id_token', authResult.idToken);
+    window.localStorage.setItem('expires_at', expiresAt);
+  }
+
+  function isAuthenticated() {
+    var expiresAt = JSON.parse(window.localStorage.getItem('expires_at'));
+    return Date.now() < expiresAt;
+  }
+  
+  function getProfile(cb) {
+    var accessToken = localStorage.getItem('access_token');
+    if (!accessToken) {
+      throw new Error('Access token must exist to fetch profile');
+    }
+
+    webAuth.client.userInfo(accessToken, (err, profile) => {
+      if (profile) {
+        userProfile = profile;
+      }
+      cb(err, profile);
+    });
+  }
+
+  function login() {
+    var client = new Auth0Cordova(auth0Config);
+
+    var options = {
+      scope: 'openid profile offline_access'
+    };
+
+    client.authorize(options, function(err, authResult) {
+      if (err) {
+        throw new Error(err);
+      }
+      if (authResult && authResult.accessToken && authResult.idToken) {
+        setSession(authResult);
+        $rootScope.$apply();
+      }
+    });
+  }
+
+  function logout() {
+    window.localStorage.removeItem('profile');
+    window.localStorage.removeItem('access_token');
+    window.localStorage.removeItem('id_token');
+    window.localStorage.removeItem('expires_at');
+  }
+
+  return {
+    login: login,
+    logout: logout,
+    getProfile: getProfile,
+    isAuthenticated: isAuthenticated
+  };
+});
+
+

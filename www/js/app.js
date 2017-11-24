@@ -5,10 +5,19 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
+var Auth0Cordova = require('@auth0/cordova');
+
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova'])
 
     .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
+        
+        function handleUrl(url) {
+            Auth0Cordova.onRedirectUri(url);
+        }
+
+        window.handleOpenURL = handleUrl;
+        
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
         if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {

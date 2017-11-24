@@ -1,6 +1,7 @@
 controllers = angular.module('starter.controllers', []);
 
-controllers.controller('ExhaustCtrl', function($scope, $http, $cordovaToast, Number, Region, User, Winelist, Wharehouse, Utility, $ionicLoading) {
+controllers.controller('ExhaustCtrl', function($scope, $http, $cordovaToast, Number, Region, User, Winelist, Wharehouse, Utility, $ionicLoading, Auth) {
+    $scope.auth = Auth;
     $scope.click = false;
     $scope.wineCategory = '';
 
@@ -28,9 +29,9 @@ controllers.controller('ExhaustCtrl', function($scope, $http, $cordovaToast, Num
         $scope.wineCategory = category;
     }
 
-    $scope.wharehouseExhaust = function (wine_id, quantity, wine_year, location_id, winemaker_name, wine_name) {
+    $scope.wharehouseExhaust = function (wine_id, quantity, wine_year, location_id, winemaker_name, wine_name, region, tipology) {
         $scope.click = true;
-        Wharehouse.postWharehouseExhaust($scope.navision_id, wine_id, quantity, wine_year, location_id, winemaker_name, wine_name).then(function(results){
+        Wharehouse.postWharehouseExhaust($scope.navision_id, wine_id, quantity, wine_year, location_id, winemaker_name, wine_name, region, tipology).then(function(results){
             var popup = Utility.confirmPopup('Magazzino aggiornato con successo.','green');
             Utility.closePopup(popup,2000);
             Utility.refreshPage('tab.exhaust');

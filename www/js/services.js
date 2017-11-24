@@ -2417,7 +2417,7 @@ service.factory('Auth', function($rootScope) {
   var userProfile = {};
 
   var auth0Config = {
-    clientId: 'OUwdVuWtRMytocw5Rgs7T6UVja0sHGaO',
+    clientId: 'wSyqm1HK0kOJ2APXyS6CJjLkI4Er2oCq',
     domain: 'thewinesider.eu.auth0.com',
     callbackURL: location.href,
     packageIdentifier: 'io.ionic.starter'

@@ -78,7 +78,7 @@ service.factory('Region', function() {
             name: 'Sicilia',
             letter: 'S',
             filter: 'SICILIA',
-        }, {
+        }, "TOSCANA" = {
             id: 15,
             name: 'Toscana',
             letter: 'T',
@@ -113,6 +113,9 @@ service.factory('Region', function() {
         all: function() {
             return regions;
         },
+        single: function(region) {
+            return regions[region].name;
+        }
     };
 })
 
@@ -2316,6 +2319,18 @@ service.factory('Winelist', function($http) {
         //return wines from a specific winelist - by winelist_id
         getWinelist: function(winelist_id) {
             var promise = $http.get('https://tws-middleware-staging.herokuapp.com/winelist/' + winelist_id).then(function (results) {
+                return results.data["0"].data;
+            });
+            return promise;
+        }
+    };
+})
+
+service.factory('Catalog', function($http) {
+    return {
+        //return wines from a specific winelist - by winelist_id
+        getCatalog: function() {
+            var promise = $http.get('https://tws-middleware-staging.herokuapp.com/wines/').then(function (results) {
                 return results.data["0"].data;
             });
             return promise;

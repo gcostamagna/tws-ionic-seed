@@ -11,13 +11,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
     .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
-        
+
         function handleUrl(url) {
             Auth0Cordova.onRedirectUri(url);
         }
 
         window.handleOpenURL = handleUrl;
-        
+
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
         if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
@@ -89,6 +89,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
             'winelist': {
                 templateUrl: 'templates/winelist.html',
                 controller: 'WinelistCtrl'
+            }
+        }
+    })
+
+        .state('tab.catalog', {
+        url: '/catalog',
+        cache: false,
+        views: {
+            'catalog': {
+                templateUrl: 'templates/catalog.html',
+                controller: 'CatalogCtrl'
             }
         }
     })

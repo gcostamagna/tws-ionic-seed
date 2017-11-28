@@ -10238,13 +10238,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
     .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
-        
+
         function handleUrl(url) {
             Auth0Cordova.onRedirectUri(url);
         }
 
         window.handleOpenURL = handleUrl;
-        
+
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
         if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
@@ -10316,6 +10316,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
             'winelist': {
                 templateUrl: 'templates/winelist.html',
                 controller: 'WinelistCtrl'
+            }
+        }
+    })
+
+        .state('tab.catalog', {
+        url: '/catalog',
+        cache: false,
+        views: {
+            'catalog': {
+                templateUrl: 'templates/catalog.html',
+                controller: 'CatalogCtrl'
             }
         }
     })
@@ -10459,6 +10470,32 @@ controllers.controller('WharehouseCtrl', function($scope, $http, $cordovaToast, 
                 $ionicLoading.hide();
             })
         })
+    });
+
+    $scope.regions = Region.all();
+
+    $scope.numbers = Number.all();
+
+    $scope.setWineRegion = function (region) {
+        $scope.wineRegion = region;
+    }
+
+    $scope.setWineCategory = function (category) {
+        $scope.wineCategory = category;
+    }
+
+})
+
+controllers.controller('CatalogCtrl', function($scope, $http, $cordovaToast, Number, Region, User, Catalog, Utility, $ionicLoading) {
+    $scope.click = false;
+    $scope.wineCategory = '';
+
+    $ionicLoading.show();
+
+    //to be changed with user_id - loading the scope variable
+    Catalog.getCatalog().then(function(wines) {
+        $scope.wines = wines;
+        $ionicLoading.hide();
     });
 
     $scope.regions = Region.all();
@@ -12793,6 +12830,18 @@ service.factory('Winelist', function($http) {
         //return wines from a specific winelist - by winelist_id
         getWinelist: function(winelist_id) {
             var promise = $http.get('https://tws-middleware-staging.herokuapp.com/winelist/' + winelist_id).then(function (results) {
+                return results.data["0"].data;
+            });
+            return promise;
+        }
+    };
+})
+
+service.factory('Catalog', function($http) {
+    return {
+        //return wines from a specific winelist - by winelist_id
+        getCatalog: function() {
+            var promise = $http.get('https://tws-middleware-staging.herokuapp.com/wines/').then(function (results) {
                 return results.data["0"].data;
             });
             return promise;

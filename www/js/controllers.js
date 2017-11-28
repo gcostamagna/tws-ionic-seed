@@ -135,3 +135,31 @@ controllers.controller('WharehouseCtrl', function($scope, $http, $cordovaToast, 
     }
 
 })
+
+controllers.controller('CatalogCtrl', function($scope, $http, $cordovaToast, Number, Region, User, Catalog, Utility, $ionicLoading) {
+    $scope.click = false;
+    $scope.wineCategory = '';
+
+    $ionicLoading.show();
+
+    //to be changed with user_id - loading the scope variable
+    Catalog.getCatalog().then(function(wines) {
+        $scope.wines = wines;
+        $ionicLoading.hide();
+    });
+
+    $scope.regions = Region.all();
+    
+    $scope.regions = Region.all();
+
+    $scope.numbers = Number.all();
+
+    $scope.setWineRegion = function (region) {
+        $scope.wineRegion = region;
+    }
+
+    $scope.setWineCategory = function (category) {
+        $scope.wineCategory = category;
+    }
+
+})

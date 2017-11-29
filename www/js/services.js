@@ -2507,17 +2507,14 @@ service.factory('Auth', function($rootScope) {
         });
     }
 
-    function login(user) {
+    function login() {
         var client = new Auth0Cordova(auth0Config);
-        console.log("Dopo client");
+
         var options = {
-            realm: "thewinesider",
-            username: user.username,
-            password: user.password,
             scope: 'openid profile offline_access'
         };
-        console.log("Dopo options");
-        webAuth.client.login(options, function(err, authResult) {
+
+        client.authorize(options, function(err, authResult) {
             if (err) {
                 throw new Error(err);
             }

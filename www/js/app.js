@@ -13,9 +13,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     $ionicPlatform.ready(function() {
 
         function handleUrl(url) {
+            console.log("Here:" + url);
             Auth0Cordova.onRedirectUri(url);
         }
-
+        console.log(handleUrl);
         window.handleOpenURL = handleUrl;
 
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard

@@ -2511,6 +2511,8 @@ service.factory('Auth', function($rootScope) {
         var client = new Auth0Cordova(auth0Config);
 
         var options = {
+            username: 'demo@thewinesider.com',
+            password: 'demotws',
             scope: 'openid profile offline_access'
         };
 

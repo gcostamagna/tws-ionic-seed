@@ -149,7 +149,7 @@ controllers.controller('CatalogCtrl', function($scope, $http, $cordovaToast, Num
     });
 
     $scope.regions = Region.all();
-    
+
     $scope.regions = Region.all();
 
     $scope.numbers = Number.all();

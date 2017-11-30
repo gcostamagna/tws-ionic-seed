@@ -5,19 +5,11 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-var Auth0Cordova = require('@auth0/cordova');
 
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova'])
 
     .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
-
-        function handleUrl(url) {
-            console.log("Here:" + url);
-            Auth0Cordova.onRedirectUri(url);
-        }
-        console.log(handleUrl);
-        window.handleOpenURL = handleUrl;
 
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
@@ -51,72 +43,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
     // Each tab has its own nav history stack:
 
-        .state('tab.exhaust', {
-        url: '/exhaust',
+        .state('tab.login', {
+        url: '/login',
         cache: false,
         views: {
-            'exhaust': {
-                templateUrl: 'templates/exhaust.html',
-                controller: 'ExhaustCtrl'
-            }
-        }
-    })
-
-        .state('tab.rectification', {
-        url: '/rectification',
-        cache: false,
-        views: {
-            'rectification': {
-                templateUrl: 'templates/rectification.html',
-                controller: 'RectificationCtrl'
-            }
-        }
-    })
-
-        .state('tab.chat-detail', {
-        url: '/chats/:chatId',
-        views: {
-            'tab-chats': {
-                templateUrl: 'templates/chat-detail.html',
-                controller: 'ChatDetailCtrl'
-            }
-        }
-    })
-
-        .state('tab.winelist', {
-        url: '/winelist',
-        cache: false,
-        views: {
-            'winelist': {
-                templateUrl: 'templates/winelist.html',
-                controller: 'WinelistCtrl'
-            }
-        }
-    })
-
-        .state('tab.catalog', {
-        url: '/catalog',
-        cache: false,
-        views: {
-            'catalog': {
-                templateUrl: 'templates/catalog.html',
-                controller: 'CatalogCtrl'
-            }
-        }
-    })
-
-        .state('tab.wharehouse', {
-        url: '/wharehouse',
-        cache: false,
-        views: {
-            'wharehouse': {
-                templateUrl: 'templates/wharehouse.html',
-                controller: 'WharehouseCtrl'
+            'login': {
+                templateUrl: 'templates/login.html',
+                controller: 'LoginCtrl'
             }
         }
     });
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/tab/exhaust');
+    $urlRouterProvider.otherwise('/tab/login');
 
 });
